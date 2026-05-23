@@ -274,3 +274,5 @@ function playGame() {
     return 'computer';
   }
 }
+
+confirm(playGame());
