@@ -141,7 +141,8 @@ FUNCTION getHumanChoice()
 
 	DISPLAY Rock, Paper, or Scissor?
 	GET user input 
-SET choice equal to user input
+  SET choice equal to user input
+  SET choice equal to lowered case user input
 
 RETURN  choice
 END FUNCTION
@@ -149,4 +150,61 @@ END FUNCTION
 
 function getHumanChoice() {
   return choice = prompt('Rock, Paper, or Scissor?').toLowerCase();
+}
+
+/*
+FUNCTION playRound()
+	SET humanChoice equal to blank
+	SET computerChoice equal to blank
+
+	CALL getHumanChoice RETURNING choice
+	SET humanChoice equal to choice
+	SET humanChoice equal to lowercase humanChoice
+
+	CALL getComputerChoice RETURNING choice
+	SET computerChoice equal to choice
+
+	IF humanChoice is equals computerChoice THEN
+		RETURN draw
+	END IF
+
+	CASE humanChoice OF
+		rock:
+			IF computerChoice equals paper THEN
+				RETURN computer
+			ELSE
+				RETURN human
+			END IF
+		paper:
+			IF computerChoice equals scissor THEN
+				RETURN computer
+			ELSE
+				RETURN human
+			END IF			
+		scissor:
+			IF computerChoice equals rock THEN
+				RETURN computer
+			ELSE
+				RETURN human
+			END IF
+	END CASE
+END FUNCTION
+*/
+
+function playRound() {
+  const humanChoice = getHumanChoice();
+  const computerChoice = getComputerChoice();
+
+  if(humanChoice === computerChoice) {
+    return 'draw';
+  }
+
+  switch (humanChoice) {
+    case 'rock':
+      return computerChoice === 'paper' ? 'computer' : 'human';
+    case 'paper':
+      return computerChoice === 'scissor' ? 'computer' : 'human';
+    case 'scissor':
+      return computerChoice === 'rock' ? 'computer' : 'human';
+  }
 }
