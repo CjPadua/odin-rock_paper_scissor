@@ -208,3 +208,69 @@ function playRound() {
       return computerChoice === 'rock' ? 'computer' : 'human';
   }
 }
+
+/*
+FUNCTION playGame()
+	SET humanScore equal to 0
+	SET computerScore equal to 0
+
+	SET rounds equal to 0
+
+	WHILE rounds is less than 5  
+		CALL playRound RETURNING winner
+
+		CASE winner OF 
+			human:
+				INCREMENT humanScore
+computer: 
+	INCREMENT computerScore
+END CASE			
+
+		INCREMENT rounds
+	END WHILE
+
+	SET winner equal to blank
+	
+IF humanScore is equals to computerScore THEN
+	SET winner equal to none
+ELSE IF humanScore is greater than computerScore THEN
+	SET winner equal to human
+ELSE 
+	SET winner equal to computer	
+END IF
+
+DISPLAY winner
+END FUNCTION
+*/
+
+function playGame() {
+  let humanScore = 0;
+  let computerScore = 0;
+
+  let rounds = 0;
+
+  while (rounds < 5) {
+    let winner = playRound();
+
+    switch (winner) {
+      case 'human':
+        humanScore++;
+        break;
+      case 'computer':
+        computerScore++;
+        break;
+    }
+
+    rounds++;
+  }
+
+  if(humanScore === computerScore) {
+    return 'draw';
+  }
+  else if (humanScore > computerScore) {
+    return 'human';
+  }
+  else {
+    return 'computer';
+  }
+}
