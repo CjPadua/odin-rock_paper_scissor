@@ -134,3 +134,19 @@ function getComputerChoice() {
 
   return choice;
 }
+
+/*
+FUNCTION getHumanChoice()
+	SET choice equal to blank
+
+	DISPLAY Rock, Paper, or Scissor?
+	GET user input 
+SET choice equal to user input
+
+RETURN  choice
+END FUNCTION
+*/
+
+function getHumanChoice() {
+  return choice = prompt('Rock, Paper, or Scissor?').toLowerCase();
+}
